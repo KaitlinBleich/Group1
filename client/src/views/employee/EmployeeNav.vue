@@ -29,9 +29,7 @@
             <!--Put Employee Profile Button Here-->
 
             <div class="buttons">
-              <a class="button is-light">
-                Your Profile
-              </a>
+                <router-link class="button is-light" to="/employee/myprofile" exact-active-class="is-active">Profile</router-link>
               <a class="button is-light">
                 LogOut
               </a>

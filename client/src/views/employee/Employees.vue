@@ -15,11 +15,14 @@
       </div>
     </section>
 
-    <!--Add the Shopping Links here-->
-
+     <!--create new employee-->
     <section class="section">
         <div class="container">
-
+            <div class="buttons">
+              <a class="button is-light" >
+                Add Employee
+              </a>
+            </div>
         </div>
     </section>
 

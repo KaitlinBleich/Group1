@@ -112,6 +112,12 @@ export default new Router({
           name: "employees",
           component: () =>
             import("./views/employee/Employees.vue")
+        },
+        {
+          path: "/employee/myprofile",
+          name: "myprofile",
+          component: () =>
+            import("./views/employee/MyProfile.vue")
         }
       ]
     },
