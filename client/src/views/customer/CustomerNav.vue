@@ -76,9 +76,15 @@
         <p>
           <strong>FoxCycle</strong> <br> store info and what not
         </p>
-        <a class="button is-light" v-on:click="showLoginModal()">
-            Log in
-        </a>
+        <div v-if="this.$store.getters.isLoggedIn">
+          <p>Logged in as {{ this.$store.getters.fullName }}</p>
+          <router-link class="button is-light" to="/employee">Go to employee pages</router-link>
+        </div>
+        <div v-else>
+          <a class="button is-light" v-on:click="showLoginModal()">
+              Log in
+          </a>
+        </div>
         <router-link class="navbar-item" to="/employee" exact-active-class="is-active">temp link to employee pages</router-link>
       </div>
     </footer>

@@ -56,8 +56,18 @@ const actions: ActionTree<iRootState, iRootState> = {
   }
 };
 
+const getters = {
+  isLoggedIn: () => {
+    return state.user != null;
+  },
+  fullName: () => {
+    return state.user ? state.user.firstName + " " + state.user.lastName : "undefined";
+  }
+}
+
 export default new Vuex.Store({
   state,
   mutations,
-  actions
+  actions,
+  getters
 });
