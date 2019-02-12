@@ -103,7 +103,7 @@ export default class NewProduct extends Vue {
 
   newitem : new_product = {
     name: "",
-    id: null,
+    id: "",
     brand: "",
     price: 0,
     stock: 0,
