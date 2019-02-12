@@ -16,7 +16,6 @@
     </section>
 
     <div class="container">
-
         
         <div class="columns">
 
