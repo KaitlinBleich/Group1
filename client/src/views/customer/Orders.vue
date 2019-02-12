@@ -15,7 +15,6 @@
       </div>
     </section>
 
-    <!--Add the Shopping Links here-->
     <section class="section">
         <div class="container">
             <div class="buttons">
