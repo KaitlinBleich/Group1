@@ -1,8 +1,9 @@
+
 export interface iUser {
+  id: number;
   firstName: string;
   lastName: string;
-  emailAddress: string;
+  username: string;
   password: string;
-  id: number;
-  profileUrl: string;
+  role: string;
 }

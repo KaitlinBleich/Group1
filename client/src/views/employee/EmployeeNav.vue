@@ -49,6 +49,9 @@
         <p>
           <strong>FoxCycle</strong> <br> store info and what not
         </p>
+        <p>
+          Logged in as {{ this.$store.getters.fullName }}
+        </p>
         <router-link class="navbar-item" to="/" exact-active-class="is-active">temp link to customer pages</router-link>
       </div>
     </footer>

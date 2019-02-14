@@ -1,13 +1,14 @@
+import { iTag, iImage } from ".";
+
 export interface iProduct {
-    name: string;
     id: string;
+    name: string;
     brand: string;
     price: number;
     stock: number;
     shipping: string;
-    categories: string;
-    subcategories: string;
     description: string;
-    images: string;
+    tags: iTag[];
+    images: iImage[];
   }
   

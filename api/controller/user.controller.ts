@@ -20,18 +20,19 @@ export class UserController extends DefaultController {
       })
       .post((req: Request, res: Response) => {
         const userRepo = getRepository(User);
-        const { firstName, lastName, emailAddress, password } = req.body;
+        const { firstName, lastName, username, password, role } = req.body;
         const user = new User();
+        user.username = username;
         user.firstName = firstName;
         user.lastName = lastName;
-        user.emailAddress = emailAddress;
         user.password = password;
+        user.role = role;
         userRepo.save(user).then(
           createdUser => {
             res.status(200).send({ createdUser });
           },
           (reason: any) => {
-            res.status(500).send({ reason: "The email was not unique" });
+            res.status(500).send({ reason: "The username was not unique" });
           }
         );
       });
@@ -45,7 +46,7 @@ export class UserController extends DefaultController {
         userRepo.findOne(req.params.id).then((user: User | undefined) => {
           if (user) {
             if (req.file) {
-              user.profileUrl = `profilePhotos/${req.file.filename}`;
+              //user.profileUrl = `profilePhotos/${req.file.filename}`;
               userRepo.save(user).then((savedUser: User) => {
                 res.send({ user: savedUser });
               });
