@@ -57,3 +57,15 @@
 
   </div>
 </template>
+
+
+<script lang="ts">
+import { Component } from "vue-property-decorator";
+import Vue from "vue";
+import { iProduct } from "@/models";
+
+@Component
+export default class ProductDetail extends Vue {
+
+}
+</script>
