@@ -9,7 +9,7 @@
             Services
           </h1>
           <h2 class="subtitle">
-            subtitle?
+            Call (123) 456 - 7890 to request a service.
           </h2>
         </div>
       </div>

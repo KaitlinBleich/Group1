@@ -6,8 +6,8 @@
 
         <!--logo-->
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        <a class="navbar-item" href="/">
+          <img src="../../assets/logo+name.png" alt="logo" width="112" height="28">
         </a>
       </div>
 
@@ -19,7 +19,9 @@
           <router-link class="navbar-item" to="/about" exact-active-class="is-active">About</router-link>
           <router-link class="navbar-item " to="/shopall" exact-active-class="is-active">Shop All</router-link>
           <div class="navbar-item has-dropdown is-hoverable"> 
-              <router-link class="navbar-item  " to="/shopbikes" exact-active-class="is-active">Shop Bikes</router-link>
+              <!--create a component for that-->
+              <!--<router-link class="navbar-item  " v-bind:to="'/shop/'+id"  exact-active-class="is-active">Shop Bikes</router-link>-->
+              <router-link class="navbar-item  " to="/shopbikes/" exact-active-class="is-active">Shop Bikes</router-link>
               <div class="navbar-dropdown">
                   <router-link class="navbar-item" to="/shopbikes" exact-active-class="is-active">Mountain</router-link>
                   <router-link class="navbar-item" to="/shopbikes" exact-active-class="is-active">Path</router-link>

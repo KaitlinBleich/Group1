@@ -15,14 +15,12 @@
       </div>
     </section>
 
-    <!--<div class="container">-->
-
+    <div class="container">
         
         <div class="columns">
 
             <!--filters and stuff-->
             <div class="column is-one-fifth">
-
                     <!--search bar-->
                    <div class="level-right">
                        <div class="field has-addons">
@@ -125,7 +123,8 @@
                 </div>
             </div>
         </div>
-    <!--</div>-->
+    
+    </div> <!--end container-->
 
-  </div>
+  </div> <!--end shopall-->
 </template>
