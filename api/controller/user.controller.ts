@@ -76,32 +76,6 @@ export class UserController extends DefaultController {
     });
     return router;
   }
-
-  protected isAuthenticated(checkSameUser: boolean = false) {
-    return (req: Request, res: Response, next: NextFunction) => {
-      const token: string | undefined = req.get("token");
-      if (token) {
-        const sessionRepo = getRepository(Session);
-        sessionRepo
-          .findOne(token, { relations: ["user"] })
-          .then((foundSession: Session | undefined) => {
-            if (
-              foundSession &&
-              ((checkSameUser &&
-                foundSession.user.id === parseInt(req.params.id, 10)) ||
-                !checkSameUser) &&
-              foundSession.expiresAt.getTime() > new Date().getTime()
-            ) {
-              next();
-            } else {
-              res.sendStatus(403);
-            }
-          });
-      } else {
-        res.sendStatus(401);
-      }
-    };
-  }
 }
 
 export default UserController;
