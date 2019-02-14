@@ -2,5 +2,6 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "ty
 
 @Entity()
 export class Product {
-
+  @PrimaryGeneratedColumn()
+  public id!: number;
 }

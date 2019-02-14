@@ -1,9 +1,17 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
+enum Role {
+  ADMIN = "ADMIN",
+  EMPLOYEE = "EMPLOYEE"
+}
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   public id!: number;
+
+  @Column({ unique: true })
+  public username!: string;
 
   @Column()
   public firstName!: string;
@@ -14,10 +22,6 @@ export class User {
   @Column()
   public password!: string;
 
-  @Column({default: null})
-  public profileUrl!: string;
-
   @Column()
-  @Index({ unique: true })
-  public emailAddress!: string;
+  public role!: Role;
 }
