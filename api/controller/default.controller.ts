@@ -24,9 +24,10 @@ export default abstract class DefaultController {
           .then((foundSession: Session | undefined) => {
             if (
               foundSession &&
-              //foundSession.user.role in roles &&
+              roles.indexOf(foundSession.user.role) > -1 &&
               foundSession.expiresAt.getTime() > new Date().getTime()
             ) {
+              res.locals.foundUser = foundSession.user;
               next();
             } else {
               res.sendStatus(403);
