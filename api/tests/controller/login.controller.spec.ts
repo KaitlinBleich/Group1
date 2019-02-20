@@ -25,14 +25,14 @@ describe("/login", () => {
 
   test("should login successfully", done => {
     connection.manager.insert(User, {
-      username: "test@test.com",
+      emailAddress: "test@test.com",
       firstName: "test",
       lastName: "test",
-      password: "password",
+      password: "password"
     }).then(() => {
       request(app)
         .post("/login")
-        .send({ username: "test@test.com", password: "password" })
+        .send({ emailAddress: "test@test.com", password: "password" })
         .expect(200)
         .then((res: request.Response) => {
           expect(res.body.token).toBeDefined();

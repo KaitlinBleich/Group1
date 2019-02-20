@@ -23,5 +23,5 @@ export class User {
   public password!: string;
 
   @Column()
-  public role ?: string = Role.EMPLOYEE;
+  public role!: Role;
 }

@@ -11,15 +11,14 @@ describe("/users", () => {
   let connection: Connection;
 
   const createUser = (
-    userE: string,
+    emailAddress: string,
     conn: Connection
   ): Promise<User> => {
     const user = new User();
-    user.username = userE;
+    user.emailAddress = emailAddress;
     user.firstName = "testUser";
     user.lastName = "testUser";
     user.password = "password";
-    
     return conn.getRepository(User).save(user);
   };
 
@@ -56,7 +55,7 @@ describe("/users", () => {
             expect(
               response.body.users && response.body.users.length
             ).toEqual(1);
-            expect(response.body.users[0].username).toEqual(email);
+            expect(response.body.users[0].emailAddress).toEqual(email);
             done();
           });
       });
@@ -68,14 +67,13 @@ describe("/users", () => {
       return request(myApp)
         .post("/users")
         .send({
-          username: email,
+          emailAddress: email,
           firstName: "test",
           lastName: "test",
           password: "password",
-          role: "admin"
         })
         .then((response: request.Response) => {
-          expect(response.body.createdUser.username).toEqual(email);
+          expect(response.body.user.emailAddress).toEqual(email);
           done();
         });
     });
