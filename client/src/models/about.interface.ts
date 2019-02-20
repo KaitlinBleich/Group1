@@ -5,6 +5,7 @@ export interface iAbout {
     greeting: string;
     description: string;
     location: string;
+    //location: iAddress;????????
     hours: string;
     image: iImage;
   }

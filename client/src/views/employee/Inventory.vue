@@ -48,6 +48,7 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import NewProduct from "@/components/NewProduct.vue";
+import {iProduct} from "@/models";
 
 @Component({
   components: {
