@@ -8,4 +8,5 @@ export * from "./order.entity";
 export * from "./orderItem.entity";
 export * from "./product.entity";
 export * from "./service.entity";
-export * from "./tag.entity";
+export * from "./category.entity";
+export * from "./subcategory.entity";

@@ -1,4 +1,4 @@
-export interface iTag {
+export interface iSubcategory {
     id: string;
     name: string;
   }
