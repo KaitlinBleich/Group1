@@ -11,14 +11,11 @@
                 <tr>
                     <td>Subtotal</td>
                     <td class="price">$10</td>
+                    <!--<td class="price">{{}}</td>-->
                 </tr>
                 <tr>
                     <td>Discount</td>
                     <td class="price">$11</td>
-                </tr>
-                <tr>
-                    <td>Tax</td>
-                    <td class="price">$12</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
