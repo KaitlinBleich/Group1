@@ -49,23 +49,25 @@
       <div class="field">
         <label class="label">Categories</label>
         <div class="control">
-          <input type="radio" id="category1" value="category1" v-model="newitem.categories">
-          <label for="category1">  category1</label> <br>
-          <input type="radio" id="category2" value="category2" v-model="newitem.categories">
-          <label for="category2">  category2</label> <br>
-          <input type="radio" id="category3" value="category3" v-model="newitem.categories">
-          <label for="category3">  category3</label> <br>
+          <div class="select" >
+            <select v-model="newitem.categories">
+              <option disabled value="">Select Category</option>
+              <option >category1</option>
+              <option>category1</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="field">
-        <label class="label">Sub-Categories</label>
+        <label class="label">SubCategories</label>
         <div class="control">
-          <input type="radio" id="category1" value="category1" v-model="newitem.subcategories">
-          <label for="category1">  category1</label> <br>
-          <input type="radio" id="category2" value="category2" v-model="newitem.subcategories">
-          <label for="category2">  category2</label> <br>
-          <input type="radio" id="category3" value="category3" v-model="newitem.subcategories">
-          <label for="category3">  category3</label> <br>
+          <div class="select" >
+            <select v-model="newitem.subcategories">
+              <option disabled value="">Select SubCategory</option>
+              <option >subcategory1</option>
+              <option>subcategory1</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="field">
