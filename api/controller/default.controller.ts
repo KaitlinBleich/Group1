@@ -34,7 +34,7 @@ export default abstract class DefaultController {
             }
           });
       } else {
-        res.sendStatus(401);
+        res.sendStatus(403);
       }
     };
   }

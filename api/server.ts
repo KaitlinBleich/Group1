@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { LoginController, UserController, AboutPageController } from "./controller";
+import { LoginController, UserController, AboutPageController, ProductController, CategoryController } from "./controller";
 import { getRepository } from "typeorm";
 
 import { DBConnection } from "./connection";
@@ -26,6 +26,8 @@ export class Server {
       app.use("/", new UserController().router);
       app.use("/", new LoginController().router);
       app.use("/", new AboutPageController().router);
+      app.use("/", new ProductController().router);
+      app.use("/", new CategoryController().router);
 
       return app;
     });

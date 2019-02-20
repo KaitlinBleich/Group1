@@ -12,7 +12,7 @@ export class AboutPageController extends DefaultController {
     router.route("/api/about").get((req: Request, res: Response) => {
         const aboutRepo = getRepository(About);
         aboutRepo
-            .findOne(1, {relations: ["image"]})
+            .findOne(1)
             .then((about: About | undefined) => {
                 if (about) {
                     res.status(200).send(about);
@@ -26,14 +26,14 @@ export class AboutPageController extends DefaultController {
     router.route("/api/about").post(
         this.isAuthenticated(Role.EMPLOYEE, Role.ADMIN),
         (req: Request, res: Response) => {
-            const { greeting, description, location, hours, image } = req.body;
+            const { greeting, description, location, hours, imageUrl } = req.body;
             const about = new About();
             about.id = 1;
             about.greeting = greeting;
             about.description = description;
             about.location = location;
             about.hours = hours;
-            about.image = image;
+            about.imageUrl = imageUrl;
             const aboutRepo = getRepository(About);
             aboutRepo.save(about).then(
                 (createdAbout: About) => {

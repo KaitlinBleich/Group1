@@ -7,6 +7,6 @@ export interface iAbout {
     location: string;
     //location: iAddress;????????
     hours: string;
-    image: iImage;
+    imageUrl: string;
   }
   

@@ -18,8 +18,7 @@ export class About {
   @Column()
   public hours!: string;
 
-  @OneToOne(type => Image, image => image.about)
-  @JoinColumn()
-  public image!: Image;
+  @Column()
+  public imageUrl!: string;
 
 }
