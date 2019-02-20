@@ -68,6 +68,12 @@ export default new Router({
           component: () =>
             import(/* webpackChunkName: "about" */ "./views/customer/Cart.vue")
         },
+        {
+          path: "/checkout",
+          name: "checkout",
+          component: () =>
+            import(/* webpackChunkName: "about" */ "./views/customer/Checkout.vue")
+        },
       ]
     },
    
