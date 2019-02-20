@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="productdetail">
     
     <!--page banner-->
     <section class="hero">
@@ -60,13 +60,12 @@
 
 
 <script lang="ts">
-import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import Vue from "vue";
 import { iProduct } from "@/models";
 
-
 @Component
-export default class About extends Vue {
- 
+export default class ProductDetail extends Vue {
+
 }
 </script>

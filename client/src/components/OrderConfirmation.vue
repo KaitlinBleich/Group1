@@ -1,4 +1,3 @@
-
 <template>
   <modal
     v-bind:is-showing="isShowing"

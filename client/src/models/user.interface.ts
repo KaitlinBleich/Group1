@@ -6,5 +6,5 @@ export interface iUser {
   username: string;
   password: string;
   role: string;
-  profileUrl: string;
+  profileUrl: string | undefined;
 }

@@ -67,6 +67,6 @@ import { iAbout } from "@/models";
 
 @Component
 export default class About extends Vue {
- 
+
 }
 </script>

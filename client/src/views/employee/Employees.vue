@@ -29,14 +29,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { Component } from "vue-property-decorator";
-import { iUser } from "@/models";
 
+<script lang="ts">
+import { Component } from "vue-property-decorator";
+import Vue from "vue";
 
 @Component
 export default class Employees extends Vue {
- 
+
 }
 </script>

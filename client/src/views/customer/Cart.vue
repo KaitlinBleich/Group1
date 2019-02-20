@@ -23,10 +23,7 @@
             <!--Itmes in cart-->
             <div class="column is-four-fifths">
               <!--list of current items in cart-->
-
-              <a href="/checkout">
-                temp link to checkout
-              </a>
+              <a href="/checkout">temp link to checkout page</a>
             </div>
 
             <!--order summary-->
@@ -35,6 +32,7 @@
                 <h1 class="subtitle">
                   Order Summary
                 </h1>
+
                 <table class="table">
                   <tr>
                     <td>SubTotal</td>
@@ -69,13 +67,8 @@ import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { iOrderItem } from "@/models";
 
-
 @Component
 export default class Cart extends Vue {
 
-
-  //this.$store.state.
-
- 
 }
 </script>
