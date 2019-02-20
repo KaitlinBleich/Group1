@@ -28,3 +28,15 @@
 
   </div>
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import { iUser } from "@/models";
+
+
+@Component
+export default class Employees extends Vue {
+ 
+}
+</script>

@@ -24,7 +24,7 @@
                 <tbody>
                   <tr>
                     <td class="subtitle"><strong>Name</strong></td>
-                    <td>{{firstname}} {{lastname}}</td>
+                    <td>{{fullname}}</td>
                     <td></td>
                   </tr>
                   <tr>
@@ -80,6 +80,7 @@ export default class MyProfile extends Vue {
 
   firstname: string = this.$store.state.user.firstName;
   lastname : string = this.$store.state.user.lastName;
+  fullname : string = this.$store.getters.fullName;
   username : string = this.$store.state.user.username;
   password : string = this.$store.state.user.password;
   role : string = this.$store.state.user.role;

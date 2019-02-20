@@ -19,7 +19,7 @@
           <router-link class="navbar-item" to="/employee/inventory" exact-active-class="is-active">Inventory</router-link> 
           <router-link class="navbar-item" to="/employee/services" exact-active-class="is-active">Services</router-link>
           <router-link class="navbar-item" to="/employee/storeinfo" exact-active-class="is-active">Store Info</router-link>
-          <router-link class="navbar-item" to="/employee/employees" exact-active-class="is-active">Employees</router-link>
+          <router-link class="navbar-item" to="/employee/employees" exact-active-class="is-active" v-show="isAdmin">Employees</router-link>
         </div>
 
         <!--right side-->
@@ -38,10 +38,8 @@
         </div>
       </div>
     </nav>
-    
 
     <router-view/>
-    <Login v-bind:is-showing="showLogin" v-on:success="successLogin()" v-on:cancel="cancelLogin()"/>
 
     <!--footer - not fixed-->
     <footer class="footer">
@@ -62,37 +60,14 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import Signup from "@/components/Signup.vue";
-import Login from "@/components/Login.vue";
 
-@Component({
-  components: {
-    Signup,
-    Login
-  }
-})
-export default class CustomerNav extends Vue {
-  public showSignup: boolean = false;
-  public showLogin: boolean = false;
+@Component
+export default class EmployeeNav extends Vue {
 
-  showSignupModal() {
-    this.showSignup = true;
+  get isAdmin(){
+    return (this.$store.state.user && this.$store.state.user.role == "ADMIN");
   }
-  successSignup() {
-    this.showSignup = false;
-  }
-  cancelSignup() {
-    this.showSignup = false;
-  }
-  showLoginModal() {
-    this.showLogin = true;
-  }
-  successLogin() {
-    this.showLogin = false;
-  }
-  cancelLogin() {
-    this.showLogin = false;
-  }
+
 }
 </script>
 
