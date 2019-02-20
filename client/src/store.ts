@@ -5,6 +5,7 @@ import { APIConfig } from "./utils/api.utils";
 import axios, { AxiosResponse } from "axios";
 
 import { iUser } from "@/models/user.interface";
+import { iOrderItem, iOrderSummary } from '@/models';
 
 Vue.use(Vuex);
 
@@ -64,6 +65,14 @@ const getters = {
     return state.user ? state.user.firstName + " " + state.user.lastName : "undefined";
   }
 }
+
+
+interface iCart {
+  items : iOrderItem[] | null;
+  summary : iOrderSummary;
+}
+
+
 
 export default new Vuex.Store({
   state,

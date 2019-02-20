@@ -30,10 +30,13 @@
 </template>
 
 <script lang="ts">
-import { Component } from "vue-property-decorator";
 import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import { iOrder, iOrderItem } from "@/models";
+
 @Component
 export default class Orders extends Vue {
+ 
 
 }
 </script>

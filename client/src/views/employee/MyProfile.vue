@@ -11,7 +11,7 @@
              My Profile
           </h1>
           <h2 class="subtitle">
-            Welcome, _your name here_.
+            Welcome, <span>{{firstname}}</span>!
           </h2>
         </div>
       </div>
@@ -24,31 +24,29 @@
                 <tbody>
                   <tr>
                     <td class="subtitle"><strong>Name</strong></td>
-                    <td>_first last_</td>
+                    <td>{{fullname}}</td>
                     <td></td>
                   </tr>
                   <tr>
                     <td class="subtitle"><strong>EmpID</strong></td>
-                    <td> _12345_ </td>
+                    <td> {{empid}} </td>
                     <td></td>
                   </tr>
                   <tr>
-                    <td class="subtitle"><strong>Email</strong></td>
-                    <td> hello@email.com </td>
-                    <td>
-                      <a class="button is-light is-small">UPDATE</a>
-                    </td>
+                    <td class="subtitle"><strong>Role</strong></td>
+                    <td> {{role}} </td>
+                    <td></td>
                   </tr>
                   <tr>
                     <td class="subtitle"><strong>Username</strong></td>
-                    <td>_username_</td>
+                    <td> {{username}} </td>
                     <td>
                       <a class="button is-light is-small">UPDATE</a>
                     </td>
                   </tr>
                   <tr>
                     <td class="subtitle"><strong>Password</strong></td>
-                    <td>***********</td>
+                    <td> {{password}} </td>
                     <td>
                       <a class="button is-light is-small">UPDATE</a>
                     </td>
@@ -69,9 +67,7 @@ import axios, { AxiosResponse } from "axios";
 import { APIConfig } from "@/utils/api.utils";
 import { iUser } from "@/models/user.interface";
 
-import Profile from "@/components/Profile.vue";
-
-@Component({ components: { Profile } })
+@Component
 export default class MyProfile extends Vue {
   get user() {
     return this.$store.state.user;
@@ -81,5 +77,15 @@ export default class MyProfile extends Vue {
       //this.$router.push({ name: "home" });
     }
   }
+
+  firstname: string = this.$store.state.user.firstName;
+  lastname : string = this.$store.state.user.lastName;
+  fullname : string = this.$store.getters.fullName;
+  username : string = this.$store.state.user.username;
+  password : string = this.$store.state.user.password;
+  role : string = this.$store.state.user.role;
+  empid : number = this.$store.state.user.id;
+
+
 }
 </script>

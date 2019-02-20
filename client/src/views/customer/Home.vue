@@ -13,6 +13,35 @@
       </div>
     </section>
 
+    <!--trying to do the tile things-->
+     <section class="section">
+
+      <div class="container">
+
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical is-parent">
+            <div class="tile is-child">
+                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+            </div>
+            <div class="tile is-child">
+              <h1 class="subtitle">Tile 2</h1>
+            </div>
+          </div>
+          <div class="tile is-vertical is-parent">
+            <div class="tile is-child">
+              <h1 class="subtitle">Tile 2</h1>
+            </div>
+            <div class="tile is-child">
+              <h1 class="subtitle">Tile 2</h1>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
     <!--Add the Shopping Links here-->
     <section class="section">
         <div class="columns">

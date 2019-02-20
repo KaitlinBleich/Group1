@@ -66,10 +66,13 @@
 </template>
 
 <script lang="ts">
-import { Component } from "vue-property-decorator";
 import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import { iService } from "@/models";
+
+
 @Component
 export default class Services extends Vue {
-
+ 
 }
 </script>

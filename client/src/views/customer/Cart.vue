@@ -63,14 +63,12 @@
 
 
 <script lang="ts">
-import { Component } from "vue-property-decorator";
 import Vue from "vue";
-import { iProduct } from "@/models";
+import { Component } from "vue-property-decorator";
+import { iOrderItem } from "@/models";
 
 @Component
 export default class Cart extends Vue {
-
-//list of iProducts
 
 }
 </script>
