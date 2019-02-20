@@ -63,11 +63,15 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import { iOrder, iOrderItem } from "@/models";
+import { iOrderItem } from "@/models";
 
 
 @Component
 export default class Cart extends Vue {
+
+
+  //create a list of iOrderItems
+
  
 }
 </script>
