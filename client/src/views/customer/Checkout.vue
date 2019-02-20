@@ -183,7 +183,7 @@
 <script lang="ts">
 import { Component } from "vue-property-decorator";
 import Vue from "vue";
-import { iOrder } from "@/models";
+import { iOrder, iOrderSummary } from "@/models";
 
 @Component
 export default class Checkout extends Vue {

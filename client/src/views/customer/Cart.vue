@@ -74,7 +74,7 @@ import { iOrderItem } from "@/models";
 export default class Cart extends Vue {
 
 
-  //create a list of iOrderItems
+  //this.$store.state.
 
  
 }
