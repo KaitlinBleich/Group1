@@ -4,7 +4,7 @@
     <!--page banner-->
     <section class="hero">
       <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
           <h1 class="title">
             Manage Services
           </h1>
@@ -56,6 +56,7 @@ import NewService from "@/components/NewService.vue";
 export default class Services extends Vue {
 
   public showAddService: boolean = false;
+
   showAddServiceModal() {
     this.showAddService = true;
   }

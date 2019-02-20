@@ -11,19 +11,19 @@
       <div class="field">
         <label class="label">Title</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Service Title" >
+          <input class="input" type="text" placeholder="Service Title" v-model="newservice.title">
         </div>
       </div>
       <div class="field">
         <label class="label">Description</label>
         <div class="control">
-          <input class="input textarea" type="text" placeholder="Service Description" >
+          <input class="input textarea" type="text" placeholder="Service Description" v-model="newservice.description">
         </div>
       </div>
       <div class="field">
         <label class="label">Price</label>
         <div class="control">
-          <input class="input" type="number" placeholder="$000" >
+          <input class="input" type="number" placeholder="$000" v-model="newservice.price">
         </div>
       </div>
     </form>
@@ -36,7 +36,8 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { APIConfig } from "../utils/api.utils";
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import Modal from "./Modal.vue";
-import { iService } from "@/models";
+import { iOrder} from "@/models";
+import { iService } from "../models";
 
 @Component({
   components: {
@@ -47,6 +48,13 @@ export default class NewService extends Vue {
 
   error: string | boolean = false;
   @Prop(Boolean) isShowing: boolean = false;
+
+  newservice: iService = {
+    id: "",
+    title: "",
+    description: "",
+    price: 0,
+  }
 
 
   @Watch("isShowing")
@@ -63,12 +71,12 @@ export default class NewService extends Vue {
   success() {
     this.error = false;
     axios
-      .post(APIConfig.buildUrl("/orders"), {
+      .post(APIConfig.buildUrl("/services"), {
         
       })
       .then((response: AxiosResponse<iOrder>) => {
         this.$emit("success");
-        this.$router.push("/orders");
+        this.$router.push("/services");
       })
       .catch((res: AxiosError) => {
         this.error = res.response && res.response.data.error;

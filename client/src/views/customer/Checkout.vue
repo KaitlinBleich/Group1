@@ -17,9 +17,9 @@
 
     <section class="section">
         <div class="container">
-            <div class="columns is-centered">
+            <div class="columns">
 
-                <div class="column is-half">
+                <div class="column is-fourth-fifths">
                     <form>  
                         <!--<form  v-on:submit.prevent="onSubmit">-->
                         <p v-if="error">{{ error }}</p>
@@ -172,6 +172,15 @@
                     </form>
 
                 </div>
+
+
+                <!--ORDER SUMMARY-->
+                <div class="column is-one-fifth">
+                    <div class="container">
+                        <OrderSummary/>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -183,9 +192,14 @@
 <script lang="ts">
 import { Component } from "vue-property-decorator";
 import Vue from "vue";
-import { iOrder, iOrderSummary } from "@/models";
+import { iOrder, iOrderSummary, iAddress } from "@/models";
+import OrderSummary from "@/components/OrderSummary.vue";
 
-@Component
+@Component({
+  components: {
+    OrderSummary
+  }
+})
 export default class Checkout extends Vue {
 
   temp_address : iAddress = {id: 0,

@@ -4,7 +4,7 @@
     <!--page banner-->
     <section class="hero">
       <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
           <h1 class="title">
             Manage Orders
           </h1>

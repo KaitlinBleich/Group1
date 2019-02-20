@@ -8,3 +8,4 @@ export * from "./service.interface";
 export * from "./category.interface";
 export * from "./subcategory.interface";
 export * from "./user.interface";
+export * from "./ordersummary.interface";

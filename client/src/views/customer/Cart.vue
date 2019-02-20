@@ -4,7 +4,7 @@
     <!--page banner-->
     <section class="hero">
       <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
           <h1 class="title">
             Your Cart
           </h1>
@@ -29,28 +29,7 @@
             <!--order summary-->
             <div class="column">
               <div class="container">
-                <h1 class="subtitle">
-                  Order Summary
-                </h1>
-
-                <table class="table">
-                  <tr>
-                    <td>SubTotal</td>
-                    <td>123</td>
-                  </tr>
-                  <tr>
-                    <td>Shipping</td>
-                    <td>123</td>
-                  </tr>
-                  <tr>
-                    <td>Tax</td>
-                    <td>123</td>
-                  </tr>
-                  <tr class="is-selected">
-                    <td>Total</td>
-                    <td>123</td>
-                  </tr>
-                </table>
+                <OrderSummary />
               </div>
             </div>
 
@@ -65,10 +44,17 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import { iOrderItem } from "@/models";
+import { iOrderItem, iOrderSummary} from "@/models";
+import OrderSummary from "@/components/OrderSummary.vue";
 
-@Component
+@Component({
+  components: {
+    OrderSummary
+  }
+})
 export default class Cart extends Vue {
+
+  
 
 }
 </script>

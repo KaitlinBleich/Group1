@@ -4,7 +4,7 @@
     <!--page banner-->
     <section class="hero">
       <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
           <h1 class="title">
             Welcome, Employee.
           </h1>
@@ -52,7 +52,7 @@
               <router-link class="navbar-item" to="/employee/storeinfo" exact-active-class="is-active"><h1 class="subtitle">Manage Store Info</h1></router-link>
             </a>
             <!--only show if admin is logged in-->
-            <a class="panel-block">
+            <a class="panel-block" v-show="isAdmin">
               <span class="panel-icon">
                 <i class="fas fa-book" aria-hidden="true"></i>
               </span>
@@ -69,8 +69,13 @@
 <script lang="ts">
 import { Component } from "vue-property-decorator";
 import Vue from "vue";
+
 @Component
 export default class Home extends Vue {
+
+  get isAdmin(){
+    return (this.$store.state.user && this.$store.state.user.role == "ADMIN");
+  }
 
 }
 </script>
