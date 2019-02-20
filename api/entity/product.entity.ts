@@ -12,7 +12,7 @@ export class Product {
   @Column()
   public brand!: string;
 
-  @Column()
+  @Column({type: "double"})
   public price!: number;
 
   @Column()
@@ -24,8 +24,7 @@ export class Product {
   @Column()
   public description!: string;
 
-  @ManyToMany(type => Image, image => image.products)
-  @JoinTable()
+  @OneToMany(type => Image, image => image.product, {cascade: ["insert", "remove"]})
   public images!: Image[];
 
   @ManyToOne(type => Category, category => category.products)
