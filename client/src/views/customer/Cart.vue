@@ -23,6 +23,10 @@
             <!--Itmes in cart-->
             <div class="column is-four-fifths">
               <!--list of current items in cart-->
+
+              <a href="/checkout">
+                temp link to checkout
+              </a>
             </div>
 
             <!--order summary-->
