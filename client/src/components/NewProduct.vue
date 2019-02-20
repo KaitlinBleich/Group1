@@ -49,31 +49,29 @@
       <div class="field">
         <label class="label">Categories</label>
         <div class="control">
-          <div class="select" >
-            <select v-model="newitem.categories">
-              <option disabled value="">Select Category</option>
-              <option >category1</option>
-              <option>category1</option>
-            </select>
-          </div>
+          <input type="checkbox" id="category1" value="category1" v-model="newitem.categories">
+          <label for="category1">  category1</label> <br>
+          <input type="checkbox" id="category2" value="category2" v-model="newitem.categories">
+          <label for="category2">  category2</label> <br>
+          <input type="checkbox" id="category3" value="category3" v-model="newitem.categories">
+          <label for="category3">  category3</label> <br>
         </div>
       </div>
       <div class="field">
-        <label class="label">SubCategories</label>
+        <label class="label">Sub-Categories</label>
         <div class="control">
-          <div class="select" >
-            <select v-model="newitem.subcategories">
-              <option disabled value="">Select SubCategory</option>
-              <option >subcategory1</option>
-              <option>subcategory1</option>
-            </select>
-          </div>
+          <input type="checkbox" id="category1" value="category1" v-model="newitem.subcategories">
+          <label for="category1">  category1</label> <br>
+          <input type="checkbox" id="category2" value="category2" v-model="newitem.subcategories">
+          <label for="category2">  category2</label> <br>
+          <input type="checkbox" id="category3" value="category3" v-model="newitem.subcategories">
+          <label for="category3">  category3</label> <br>
         </div>
       </div>
       <div class="field">
         <label class="label">Decription</label>
         <div class="control">
-          <input class="input textarea" type="text" v-model="newitem.decription" placeholder="Product Description"/>
+          <input class="textarea" v-model="newitem.decription" placeholder="Product Description"/>
 
         </div>
       </div>
@@ -92,7 +90,6 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Modal from "./Modal.vue";
-import { iProduct } from "@/models";
 
 @Component({
   components: {
@@ -102,8 +99,9 @@ import { iProduct } from "@/models";
 
 export default class NewProduct extends Vue {
 
-//use iProduct when its finished
-  newitem : any = {
+  //CONNECT TO NEWPRODUCT.CONTROLLER.TS
+
+  newitem : new_product = {
     name: "",
     id: "",
     brand: "",
@@ -113,7 +111,7 @@ export default class NewProduct extends Vue {
     categories: "",
     subcategories: "",
     description: "",
-    images: [], 
+    images: "", 
   }
 
   error: string | boolean = false;
@@ -136,5 +134,17 @@ export default class NewProduct extends Vue {
   }
 }
 
+export interface new_product {
+    name: string;
+    id: string;
+    brand: string;
+    price: number;
+    stock: number;
+    shipping: string;
+    categories: string;
+    subcategories: string;
+    description: string;
+    images: string;
+}
 
 </script>

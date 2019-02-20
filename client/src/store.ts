@@ -42,7 +42,7 @@ const actions: ActionTree<iRootState, iRootState> = {
   fetchUser({ commit }, payload) {
     const { userid } = payload;
     return axios
-      .get(APIConfig.buildUrl(`/api/users/${userid}`))
+      .get(APIConfig.buildUrl(`/users/${userid}`))
       .then((res: AxiosResponse<{ user: iUser }>) => {
         commit("setUser", { user: res.data.user });
         return res.data.user;

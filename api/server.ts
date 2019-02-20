@@ -1,7 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { LoginController, UserController, AboutPageController } from "./controller";
-import { getRepository } from "typeorm";
+import { LoginController, UserController } from "./controller";
 
 import { DBConnection } from "./connection";
 
@@ -15,8 +14,6 @@ export class Server {
   }
   protected buildServer(): Promise<express.Application> {
     return DBConnection.getConnection().then(() => {
-      UserController.createDefaultAdmin();
-
       const app: express.Application = express();
 
       app.use(cors());
@@ -25,7 +22,6 @@ export class Server {
 
       app.use("/", new UserController().router);
       app.use("/", new LoginController().router);
-      app.use("/", new AboutPageController().router);
 
       return app;
     });

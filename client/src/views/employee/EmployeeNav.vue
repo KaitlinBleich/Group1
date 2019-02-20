@@ -71,7 +71,7 @@ import Login from "@/components/Login.vue";
     Login
   }
 })
-export default class EmployeeNav extends Vue {
+export default class CustomerNav extends Vue {
   public showSignup: boolean = false;
   public showLogin: boolean = false;
 

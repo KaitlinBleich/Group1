@@ -19,7 +19,7 @@
     <section class="section">
         <div class="container">
             <div class="buttons">
-              <a class="button is-light" v-on:click="showAddServiceModal">
+              <a class="button is-light" >
                 Add Service
               </a>
             </div>
@@ -36,35 +36,5 @@
         </div>
     </section>
 
-    <router-view/>
-    <NewService v-bind:is-showing="showAddService" v-on:success="successAddService" v-on:cancel="cancelAddService"/>
-
   </div>
 </template>
-
-<script lang="ts">
-import { Component } from "vue-property-decorator";
-import Vue from "vue";
-import { iService } from "@/models";
-import NewService from "@/components/NewService.vue";
-
-@Component({
-  components: {
-    NewService
-  }
-})
-export default class Services extends Vue {
-
-  public showAddService: boolean = false;
-  showAddServiceModal() {
-    this.showAddService = true;
-  }
-  successAddService() {
-    this.showAddService = false;
-  }
-  cancelAddService() {
-    this.showAddService = false;
-  }
-
-}
-</script>

@@ -19,10 +19,9 @@ export class LoginController extends DefaultController {
           console.log("found user:", user);
           if (user && user.password === password) {
             sessionRepo
-              .findOne({ where: { user: user } })
+              .findOne({ where: { userId: user.id } })
               .then((session: Session | undefined) => {
-                console.log(session, user);
-                const expiry = new Date(new Date().getTime() + 60000 * 60 * 24 * 365);
+                const expiry = new Date(new Date().getTime() + 60000 * 30);
                 if (!session) {
                   session = new Session();
                   session.user = user;
