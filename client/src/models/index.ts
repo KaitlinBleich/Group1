@@ -5,5 +5,6 @@ export * from "./order.interface";
 export * from "./orderItem.interface";
 export * from "./product.interface";
 export * from "./service.interface";
-export * from "./tag.interface";
+export * from "./category.interface";
+export * from "./subcategory.interface";
 export * from "./user.interface";

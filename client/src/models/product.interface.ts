@@ -1,4 +1,4 @@
-import { iTag, iImage } from ".";
+import { iCategory, iSubcategory, iImage } from ".";
 
 export interface iProduct {
     id: string;
@@ -8,7 +8,8 @@ export interface iProduct {
     stock: number;
     shipping: string;
     description: string;
-    tags: iTag[];
+    category: iCategory;
+    subcategory: iSubcategory;
     images: iImage[];
   }
   
