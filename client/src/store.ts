@@ -73,13 +73,6 @@ const getters = {
   fullName: () => {
     return state.user ? state.user.firstName + " " + state.user.lastName : "undefined";
   },
-  //cart stuff
-  getCartSummary: () => {
-    return state.CartSummary;
-  },
-  getCartItems: () => {
-    return state.CartItems;
-  }
 }
 
 

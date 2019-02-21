@@ -50,7 +50,7 @@
         <label class="label">Categories</label>
         <div class="control">
           <div class="select" >
-            <select v-model="newitem.categories">
+            <select v-model="newitem.category">
               <option disabled value="">Select Category</option>
               <option >category1</option>
               <option>category1</option>
@@ -62,7 +62,7 @@
         <label class="label">SubCategories</label>
         <div class="control">
           <div class="select" >
-            <select v-model="newitem.subcategories">
+            <select v-model="newitem.subcategory">
               <option disabled value="">Select SubCategory</option>
               <option >subcategory1</option>
               <option>subcategory1</option>
@@ -103,17 +103,17 @@ import { iProduct } from "@/models";
 export default class NewProduct extends Vue {
 
 //use iProduct when its finished
-  newitem : any = {
+  newitem : iProduct = {
     name: "",
     id: "",
     brand: "",
     price: 0,
     stock: 0,
     shipping: "",
-    categories: "",
-    subcategories: "",
     description: "",
-    images: [], 
+    category: {id:"", name: "", subcategories: []},
+    subcategory: {id: "", name: ""},
+    images: [{id:0,url:""}], 
   }
 
   error: string | boolean = false;
@@ -133,6 +133,16 @@ export default class NewProduct extends Vue {
   }
 
   clearForm(){
+    this.newitem.name = "";
+    this.newitem.id = "";
+    this.newitem.brand = "";
+    this.newitem.price = 0;
+    this.newitem.stock = 0;
+    this.newitem.shipping = "";
+    this.newitem.description = "";
+    this.newitem.category = {id:"", name: "", subcategories: []};
+    this.newitem.subcategory = {id:"", name: ""};
+    this.newitem.images = [];
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="small-box">
         <!--header>-->
         <header class="header">
-            <h1 class="subtitle">Order Summary</h1>
+            <h1 class="subtitle"><strong>Order Summary</strong></h1>
         </header>
       
         <!--content-->
@@ -10,20 +10,20 @@
             <table class="table is-fullwidth">
                 <tr>
                     <td>Subtotal</td>
-                    <td class="price">$10</td>
+                    <td class="price">$100</td>
                     <!--<td class="price">{{}}</td>-->
                 </tr>
                 <tr>
                     <td>Discount</td>
-                    <td class="price">$11</td>
+                    <td class="price">$0</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
-                    <td class="price">$idk</td>
+                    <td class="price">$0</td>
                 </tr>
                 <tr class="is-selected">
-                    <td >total</td>
-                    <td class="price">$10000</td>
+                    <td >Total</td>
+                    <td class="price">$100</td>
                 </tr> 
             </table>
         </section>
@@ -33,16 +33,21 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { iOrderSummary } from "@/models";
+import { iOrderSummary, iOrderItem } from "@/models";
 
 @Component
 export default class OrderSummary extends Vue {
   @Prop(Boolean) isShowing!: boolean;
 
-
-      //this.$store.state.cart
-  //get the list of items (may have duplicates?)
-  //calculate the totals
+  get current_subtotal() {
+      var sum = 0;
+      if (this.$store.state.cart.CartItems){
+        for (let i=0; i<this.$store.state.cart.CartItems.length; i++){
+          sum +=( this.$store.state.cart.CartItems.price * this.$store.state.cart.CartItems.quantity);
+        }
+      }
+       return sum;
+  }
 
 }
 </script>

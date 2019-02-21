@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="content">
-                                            <p class="title is-4 no-padding">Product Name</p>
+                                            <p class="title is-4 no-padding"><a href="/productdetail">Product Name</a></p>
                                             <p class="subtitle is-6">Brand</p>
                                         </div>
                                     </div>
@@ -128,3 +128,19 @@
 
   </div> <!--end shopall-->
 </template>
+
+
+
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { iProduct } from "@/models";
+
+@Component
+export default class ShopAll extends Vue {
+
+    addToCart(index:number){
+        //this.$store.state.cart.CartItems.push();
+        this.$router.push("/cart");
+    }
+
+</script>
