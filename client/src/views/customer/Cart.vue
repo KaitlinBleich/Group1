@@ -20,16 +20,16 @@
         <div class="container">
           <div class="columns">
 
-            <!--Itmes in cart-->
+            <!--Items in cart-->
             <div class="column is-four-fifths">
-              <!--list of current items in cart-->
-              <a href="/checkout">temp link to checkout page</a>
+                <OrderList/>
             </div>
 
             <!--order summary-->
             <div class="column">
               <div class="container">
                 <OrderSummary />
+                <a href="/checkout">temp link to checkout page</a>
               </div>
             </div>
 
@@ -46,10 +46,12 @@ import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { iOrderItem, iOrderSummary} from "@/models";
 import OrderSummary from "@/components/OrderSummary.vue";
+import OrderList from "@/components/OrderList.vue";
 
 @Component({
   components: {
-    OrderSummary
+    OrderSummary,
+    OrderList
   }
 })
 export default class Cart extends Vue {

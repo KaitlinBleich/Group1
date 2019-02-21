@@ -12,6 +12,10 @@ Vue.use(Vuex);
 interface iRootState {
   userToken: string | null;
   user: iUser | null;
+
+  //cart stuff
+  CartItems : iOrderItem[] | null;
+  CartSummary : iOrderSummary | null;
 }
 
 interface iLoginPayload {
@@ -21,8 +25,13 @@ interface iLoginPayload {
 
 const state: iRootState = {
   userToken: null,
-  user: null
+  user: null,
+
+  //cart stuff?
+  CartItems: null,
+  CartSummary: null,
 };
+
 
 const mutations: MutationTree<iRootState> = {
   setUser(state, payload) {
@@ -63,15 +72,15 @@ const getters = {
   },
   fullName: () => {
     return state.user ? state.user.firstName + " " + state.user.lastName : "undefined";
+  },
+  //cart stuff
+  getCartSummary: () => {
+    return state.CartSummary;
+  },
+  getCartItems: () => {
+    return state.CartItems;
   }
 }
-
-
-interface iCart {
-  items : iOrderItem[] | null;
-  summary : iOrderSummary;
-}
-
 
 
 export default new Vuex.Store({
