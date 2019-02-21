@@ -31,7 +31,7 @@ export class UserController extends DefaultController {
         user.role = role;
         userRepo.save(user).then(
           createdUser => {
-            res.status(200).send({ createdUser });
+            res.status(200).send({ user: createdUser });
           },
           (reason: any) => {
             res.status(500).send({ reason: "The username was not unique" });
@@ -44,26 +44,32 @@ export class UserController extends DefaultController {
       this.isAuthenticated(Role.EMPLOYEE, Role.ADMIN),
       (req: Request, res: Response) => {
         const userRepo = getRepository(User);
-        const { firstName, lastName, username, password, role } = req.body;
-        const user = new User();
-        user.id = parseInt(req.params.id, 10);
+        const userId = parseInt(req.params.id, 10);
+        userRepo.findOne(userId).then((foundUser: User | undefined) => {
+          if (foundUser) {
+            const { firstName, lastName, username, password, role } = req.body;
 
-        // Only an admin can change user info
-        if (res.locals.foundUser.role == Role.ADMIN) {
-          user.username = username;
-          user.firstName = firstName;
-          user.lastName = lastName;
-          user.role = role;
-        }
+            // Only let a user change their own info, unless they're an admin
+            if (res.locals.foundUser.id == userId || res.locals.foundUser.role == Role.ADMIN) {
+              foundUser.username = username;
+              foundUser.firstName = firstName;
+              foundUser.lastName = lastName;
+              foundUser.password = password;
+            }
+            if (res.locals.foundUser.role == Role.ADMIN) {
+              foundUser.role = role;
+            }
 
-        // Only a user can change their password
-        if (res.locals.foundUser.id === user.id) {
-          user.password = password;
-        }
-
-        userRepo.save(user)
-          .then(() => res.sendStatus(200))
-          .catch(() => res.sendStatus(500));
+            userRepo.save(foundUser)
+              .then(() => {
+                res.status(200).send({ user: foundUser })
+              })
+              .catch(() => res.sendStatus(500));
+          }
+          else {
+            res.sendStatus(404);
+          }
+        });
       }
     );
 
@@ -98,9 +104,6 @@ export class UserController extends DefaultController {
             else {
               res.sendStatus(404);
             }
-          },
-          () => {
-            res.sendStatus(404);
           }
         );
           

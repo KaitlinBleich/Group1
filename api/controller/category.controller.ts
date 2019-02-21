@@ -25,7 +25,7 @@ export class CategoryController extends DefaultController {
         category.name = name;
         categoryRepo.save(category).then(
           (createdCategory: Category) => {
-            res.sendStatus(200);
+            res.status(200).send({ category: createdCategory });
           },
           () => {
             res.sendStatus(500);
@@ -76,7 +76,7 @@ export class CategoryController extends DefaultController {
         subcategory.category.id = categoryId;
         subcategoryRepo.save(subcategory).then(
           (createdSubcategory: Subcategory) => {
-            res.sendStatus(200);
+            res.status(200).send({ subcategory: createdSubcategory });
           },
           () => {
             res.sendStatus(500);

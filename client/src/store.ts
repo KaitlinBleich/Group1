@@ -59,10 +59,8 @@ const actions: ActionTree<iRootState, iRootState> = {
       });
   },
   login({ commit, dispatch }, payload) {
-    const { userid, token } = payload;
-    dispatch("fetchUser", { userid }).then(user => {
-      commit("login", { user, token });
-    });
+    const { user, token } = payload;
+    commit("login", { user, token });
   }
 };
 
