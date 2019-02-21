@@ -11,6 +11,6 @@ export class Service {
   @Column()
   public description!: string;
 
-  @Column()
+  @Column({type: "double"})
   public price!: number;
 }
