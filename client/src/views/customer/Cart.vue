@@ -29,7 +29,7 @@
             <div class="column">
               <div class="container">
                 <OrderSummary />
-                <a href="/checkout">temp link to checkout page</a>
+                <button class="button"><a href="/checkout">CHECKOUT</a></button>
               </div>
             </div>
 

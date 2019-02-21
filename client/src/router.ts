@@ -40,6 +40,8 @@ export default new Router({
         },
         {
           path: "/productdetail",
+          //path: "/product/:id/"
+          //params=true,
           name: "productdetail",
           component: () =>
             import(/* webpackChunkName: "about" */ "./views/customer/ProductDetail.vue")

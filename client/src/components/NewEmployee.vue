@@ -29,8 +29,8 @@
       <div class="field">
             <label class="label">Role</label>
             <div class="control">
-                <div class="select" v-model="newuser.role">
-                <select>
+                <div class="select">
+                <select v-model="newuser.role">
                     <option>EMPLOYEE</option>
                     <option>ADMIN</option>
                 </select>
@@ -95,12 +95,23 @@ export default class NewEmployee extends Vue {
   success() {
     this.error = false;
     axios
-      .post(APIConfig.buildUrl("/employees"), {
-        
+      .post(APIConfig.buildUrl("/api/users"), 
+      {
+        firstName : this.newuser.firstName,
+        lastName : this.newuser.lastName,
+        username : this.newuser.username,
+        password : this.newuser.password,
+        role : this.newuser.role,
+      }, 
+      {
+        headers : {
+          token: this.$store.state.userToken
+        }
       })
       .then((response: AxiosResponse) => {
         this.$emit("success");
-        this.$router.push("/employees");
+        console.log("success");
+        this.$router.push("/employee/employees");
       })
       .catch((res: AxiosError) => {
         this.error = res.response && res.response.data.error;

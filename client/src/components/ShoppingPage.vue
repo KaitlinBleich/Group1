@@ -1,20 +1,4 @@
 <template>
-  <div class="shopall">
-    
-    <!--page banner-->
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">
-            Shop All Products
-          </h1>
-          <h2 class="subtitle">
-            subtitle?
-          </h2>
-        </div>
-      </div>
-    </section>
-
     <div class="container">
         
         <div class="columns">
@@ -54,12 +38,12 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="content">
-                                            <p class="title is-4 no-padding"><a href="/productdetail">Product Name</a></p>
+                                            <p class="title is-4 no-padding">Product Name</p>
                                             <p class="subtitle is-6">Brand</p>
                                         </div>
                                     </div>
                                     <footer class="card-footer">
-                                        <a class="card-footer-item" v:on-click="addToCart">Add to Cart</a>
+                                        <a class="card-footer-item">Add to Cart</a>
                                     </footer>
                                 </div>
                             </div>
@@ -99,6 +83,24 @@
                                     </footer>
                                 </div>
                             </div>
+                            <div class="column is-one-fourth">
+                                <div class="card large">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?dpr=1&auto=compress,format&fit=crop&w=1920&h=&q=80&cs=tinysrgb&crop=" alt="Image">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="content">
+                                            <p class="title is-4 no-padding">Product Name</p>
+                                            <p class="subtitle is-6">Brand</p>
+                                        </div>
+                                    </div>
+                                    <footer class="card-footer">
+                                        <a class="card-footer-item">Add to Cart</a>
+                                    </footer>
+                                </div>
+                            </div>
                         </div>
                         <!--end product list?-->
                     </div>
@@ -107,40 +109,17 @@
         </div>
     
     </div> <!--end container-->
-
-  </div> <!--end shopall-->
 </template>
 
-
-
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import { iProduct } from "@/models";
-import axios, { AxiosError, AxiosResponse } from "axios";
-import { APIConfig } from "@/utils/api.utils";
 
 @Component
-export default class ShopAll extends Vue {
+export default class ShoppingPage extends Vue {
+    //@Prop(Boolean)
 
-    error: string | boolean = false;
-    product_list: iProduct[] = [];
-
-    mounted(){
-        this.error = false;
-        axios
-        .get(APIConfig.buildUrl("/api/products"))
-        .then((response: AxiosResponse) =>{
-            this.product_list = response.data.products;
-        })
-        .catch((res: AxiosError) => {
-        this.error = res.response && res.response.data.error;
-      });
-    }
-
-    addToCart(index:number){
-        //this.$store.state.cart.CartItems.push(products[index]);
-        this.$router.push("/cart");
-    }
+    //somehow pass the category to this????
+ 
 }
-
 </script>
