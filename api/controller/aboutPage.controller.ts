@@ -37,11 +37,7 @@ export class AboutPageController extends DefaultController {
             const aboutRepo = getRepository(About);
             aboutRepo.save(about).then(
                 (createdAbout: About) => {
-                    res.sendStatus(200);
-                },
-                (reason: any) => {
-                    console.log(reason);
-                    res.sendStatus(500);
+                    res.status(200).send({ about: createdAbout })
                 }
             );
         }

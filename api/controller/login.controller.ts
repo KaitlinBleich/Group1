@@ -31,7 +31,7 @@ export class LoginController extends DefaultController {
                 sessionRepo.save(session).then(updatedSession => {
                   res
                     .status(200)
-                    .send({ firstName: user.firstName, lastName: user.lastName, role: user.role, token: updatedSession.id, userId: user.id });
+                    .send({ user: user, token: updatedSession.id });
                 });
               });
           } else {

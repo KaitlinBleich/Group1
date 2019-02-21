@@ -33,6 +33,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { APIConfig } from "../utils/api.utils";
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import { iUser } from "@/models";
 import Modal from "./Modal.vue";
 
 @Component({
@@ -68,7 +69,7 @@ export default class Login extends Vue {
       .then((response: AxiosResponse<LoginResponse>) => {
         this.$store.dispatch("login", {
           token: response.data.token,
-          userid: response.data.userId
+          user: response.data.user
         });
         this.$emit("success");
         this.$router.push("/employee");
@@ -85,7 +86,7 @@ export default class Login extends Vue {
 
 interface LoginResponse {
   token: string;
-  userId: number;
+  user: iUser;
 }
 
 export interface LoginForm {
